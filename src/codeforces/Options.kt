@@ -1,6 +1,6 @@
 package codeforces
 
-import utils.append
+import main.needPreprocessData
 import java.io.File
 import java.io.FileWriter
 import java.io.PrintWriter
@@ -11,19 +11,20 @@ import java.io.PrintWriter
 val workDir = createDir("work")
 val statementsDir = createDir("work/statements")
 val pagesDir = createDir("work/htmls")
-val saveTags = false
-val tagsFile = createFileForAppend("work/tags", saveTags)
-val noTagsFile = createFileForAppend("work/noTags", saveTags)
-val saveStatements = false
+val saveTags = true
+val tagsPath = "work/tags"
+val tagsFile = createFileForAppend(tagsPath, saveTags && needPreprocessData)
+val noTagsFile = createFileForAppend("work/noTags", saveTags && needPreprocessData)
+val saveStatements = true
 val saveTutorials = true
 val tutorialsDir = createDir("work/tutorials")
-val tutorialUrlsFile = createFileForAppend("work/tutorialUrls", saveTutorials)
-val noTutorialFile = createFileForAppend("work/0_noTutorial", saveTutorials)
-val notLoadedTutorial = createFileForAppend("work/1_notLoadedTutorial", saveTutorials)
-val noCaptionInTutorial = createFileForAppend("work/2_noCaptionInTutorial", saveTutorials)
-val noCaptionInTutorialHtml = createFileForAppend("work/3_noCaptionInTutorialHtml", saveTutorials)
-val noProblemCaptionInTutorial = createFileForAppend("work/4_noProblemCaptionInTutorial", saveTutorials)
-val noLetterCaptionInTutorial = createFileForAppend("work/5_noLetterCaptionInTutorial", saveTutorials)
+val tutorialUrlsFile = createFileForAppend("work/tutorialUrls", saveTutorials && needPreprocessData)
+val noTutorialFile = createFileForAppend("work/0_noTutorial", saveTutorials && needPreprocessData)
+val notLoadedTutorial = createFileForAppend("work/1_notLoadedTutorial", saveTutorials && needPreprocessData)
+val noCaptionInTutorial = createFileForAppend("work/2_noCaptionInTutorial", saveTutorials && needPreprocessData)
+val noCaptionInTutorialHtml = createFileForAppend("work/3_noCaptionInTutorialHtml", saveTutorials && needPreprocessData)
+val noProblemCaptionInTutorial = createFileForAppend("work/4_noProblemCaptionInTutorial", saveTutorials && needPreprocessData)
+val noLetterCaptionInTutorial = createFileForAppend("work/5_noLetterCaptionInTutorial", saveTutorials && needPreprocessData)
 
 val tagsMap = mutableMapOf<String, Set<String>>()
 
